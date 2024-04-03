@@ -21,11 +21,11 @@ public class Constants {
     public static final double kP = 0;
     public static final double kI = 0;
     public static final double kD = 0;
-    public static final double kSourcePosition = 0.154296875;
-    public static final double kShootingPosition = 0.05; 
+    public static final double kSourcePosition = 0.154296875; // placeholder, please record on the actual field
+    public static final double kShootingPosition = 0.05; // placeholder, please record on the actual field
     public static final double kLowPosition = 0.25;
-    public static final double kHighPosition = 0.09;
-    public static final double kHozPosition = 0.2;
+    public static final double kHighPosition = 0.09; // legal position, must be here to fit in dimensions
+    public static final double kHozPosition = 0.2; 
     public static final double kHangDown = 0.27;
     public static final double kHangUp = -0.02;
     public static final int kpivotCanCoderID = 55;  

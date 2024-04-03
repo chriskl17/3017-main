@@ -5,14 +5,11 @@
 package frc.robot.commands.sequences;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.Constants.IndexerConstants;
-import frc.robot.Constants.PivotConstants;
-import frc.robot.commands.RunIndexer;
+
 import frc.robot.commands.RunPivot;
-import frc.robot.commands.RunShooter;
-import frc.robot.subsystems.Indexer;
+
 import frc.robot.subsystems.Pivot;
-import frc.robot.subsystems.Shooter;
+
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:

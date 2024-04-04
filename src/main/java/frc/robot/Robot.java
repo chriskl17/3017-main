@@ -13,8 +13,10 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
 public class Robot extends TimedRobot {
-  private TalonFXConfiguration motorConfig;
-  private TalonFX frontRight, frontLeft, backRight, backLeft;
+  private TalonFXConfiguration motorConfigD;
+  private TalonFXConfiguration motorConfigR;
+  private TalonFX frontRightD, frontLeftD, backRightD, backLeftD;
+  private TalonFX frontRightR, frontLeftR, backRightR, backLeftR;
   private Command m_autonomousCommand;
 
   private RobotContainer m_robotContainer;
@@ -22,21 +24,40 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_robotContainer = new RobotContainer();
-    
-    frontRight = new TalonFX(1);
-    frontLeft = new TalonFX(3);
-    backRight = new TalonFX(5);
-    backLeft = new TalonFX(7);
 
-    motorConfig = new TalonFXConfiguration();
-    motorConfig.Voltage.PeakForwardVoltage = 13.2;
-    motorConfig.CurrentLimits.SupplyCurrentLimit = 60;
-    motorConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
-    motorConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
-    frontRight.getConfigurator().apply(motorConfig);
-    frontLeft.getConfigurator().apply(motorConfig);
-    backRight.getConfigurator().apply(motorConfig);
-    backLeft.getConfigurator().apply(motorConfig);
+    frontRightD = new TalonFX(1);
+    frontRightR = new TalonFX(2);
+    frontLeftD = new TalonFX(3);
+    frontLeftR = new TalonFX(4);
+    backRightD = new TalonFX(5);
+    backRightR = new TalonFX(6);
+    backLeftD = new TalonFX(7);
+    backLeftR = new TalonFX(8);
+
+
+    motorConfigD = new TalonFXConfiguration();
+    motorConfigD.Voltage.PeakForwardVoltage = 13.2;
+    motorConfigD.CurrentLimits.SupplyCurrentLimit = 60;
+    motorConfigD.CurrentLimits.SupplyCurrentLimitEnable = true;
+    motorConfigD.TorqueCurrent.PeakForwardTorqueCurrent = 100;
+    motorConfigD.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+
+    motorConfigR = new TalonFXConfiguration();
+    motorConfigR.Voltage.PeakForwardVoltage = 13.2;
+    motorConfigR.CurrentLimits.SupplyCurrentLimit = 60;
+    motorConfigR.CurrentLimits.SupplyCurrentLimitEnable = true;
+    motorConfigR.TorqueCurrent.PeakForwardTorqueCurrent = 266;
+    motorConfigR.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+
+
+    frontRightD.getConfigurator().apply(motorConfigD);
+    frontLeftD.getConfigurator().apply(motorConfigD);
+    backRightD.getConfigurator().apply(motorConfigD);
+    backLeftD.getConfigurator().apply(motorConfigD);
+    frontRightR.getConfigurator().apply(motorConfigR);
+    frontLeftR.getConfigurator().apply(motorConfigR);
+    backRightR.getConfigurator().apply(motorConfigR);
+    backLeftR.getConfigurator().apply(motorConfigR);
   }
 
   @Override

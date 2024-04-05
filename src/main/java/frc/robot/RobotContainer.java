@@ -71,7 +71,7 @@ public class RobotContainer {
 
     // reset the field-centric heading on left bumper press
     joystick.leftBumper().onTrue(drivetrain.runOnce(() -> drivetrain.seedFieldRelative()));
-    joystick.start().onTrue(new MotorConfig());
+
     if (Utils.isSimulation()) {
       drivetrain.seedFieldRelative(new Pose2d(new Translation2d(), Rotation2d.fromDegrees(90)));
     }
@@ -81,8 +81,12 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
   }
-
+  public Command AutonCode() {
+    new ChangePosition(pivot, PivotConstants.kShootingPosition);
+    return new RunIndexer(indexer, 1);
+   }
+ 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return AutonCode;
   }
 }

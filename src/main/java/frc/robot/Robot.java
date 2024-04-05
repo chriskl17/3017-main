@@ -47,12 +47,12 @@ public class Robot extends TimedRobot {
     motorConfigDR.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     
     motorConfigDL = new TalonFXConfiguration();
-    motorConfigDR.Voltage.PeakForwardVoltage = 13.2;
-    motorConfigDR.CurrentLimits.SupplyCurrentLimit = 60;
-    motorConfigDR.CurrentLimits.SupplyCurrentLimitEnable = true;
-    motorConfigDR.TorqueCurrent.PeakForwardTorqueCurrent = 100;
-    motorConfigDR.TorqueCurrent.PeakReverseTorqueCurrent = -100;
-    motorConfigDR.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+    motorConfigDL.Voltage.PeakForwardVoltage = 13.2;
+    motorConfigDL.CurrentLimits.SupplyCurrentLimit = 60;
+    motorConfigDL.CurrentLimits.SupplyCurrentLimitEnable = true;
+    motorConfigDL.TorqueCurrent.PeakForwardTorqueCurrent = 100;
+    motorConfigDL.TorqueCurrent.PeakReverseTorqueCurrent = -100;
+    motorConfigDL.MotorOutput.NeutralMode = NeutralModeValue.Brake;
 
     // motorConfigR = new TalonFXConfiguration();
     // motorConfigR.Voltage.PeakForwardVoltage = 13.2;

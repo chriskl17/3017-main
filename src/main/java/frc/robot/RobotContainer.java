@@ -4,19 +4,32 @@
 
 package frc.robot;
 
+import java.util.concurrent.TimeoutException;
+
 import com.ctre.phoenix6.Utils;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveRequest;
 import com.ctre.phoenix6.mechanisms.swerve.SwerveModule.DriveRequestType;
+import com.fasterxml.jackson.core.sym.Name;
+// import com.pathplanner.lib.auto.AutoBuilder;
+// import com.pathplanner.lib.auto.NamedCommands;
+// import com.pathplanner.lib.commands.PathPlannerAuto;
+
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Constants.IndexerConstants;
 import frc.robot.Constants.PivotConstants;
 import frc.robot.commands.RunIndexer;
+import frc.robot.commands.RunPivot;
 import frc.robot.commands.RunShooter;
+// import frc.robot.commands.indexerAuton;
+// import frc.robot.commands.sequences.AutonShoot;
 import frc.robot.commands.sequences.ChangePosition;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.Indexer;
@@ -29,6 +42,10 @@ public class RobotContainer {
   Pivot pivot = new Pivot();
   Shooter shooter = new Shooter();
   Indexer indexer = new Indexer();
+
+
+  
+  
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController joystick = new CommandXboxController(0); // My joystick
@@ -81,12 +98,8 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
   }
-  public Command AutonCode() {
-    new ChangePosition(pivot, PivotConstants.kShootingPosition);
-    return new RunIndexer(indexer, 1);
-   }
- 
+
   public Command getAutonomousCommand() {
-    return AutonCode;
+    return Commands.print("No autonomous command configured");
   }
 }
